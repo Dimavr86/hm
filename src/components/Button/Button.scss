@@ -1,0 +1,84 @@
+.Button.load {
+
+    .Button__load {
+        z-index: 10;
+        opacity: 1;
+    }
+
+    .Button__side {
+        opacity: 0;
+    }
+
+    .Button__text {
+        opacity: 0;
+    }
+}
+
+.Button {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border-radius: 30px;
+    position: relative;
+    color: #fff;
+    transition: all .3s ease;
+    background-color: var(--blue);
+    cursor: pointer;
+
+    &:active {
+        transform: scale(0.95);
+        opacity: .7;
+    }
+
+    &:hover {
+        opacity: .7;
+    }
+    
+    &:disabled {
+        pointer-events: none;
+        touch-action: none;
+        opacity: .7;
+    }
+
+    &__load {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 0;
+        opacity: 0;
+        transition: all .3s ease;
+    }
+
+    &__side {
+        font-size: 16px;
+        line-height: 16px;
+        transition: all .3s ease;
+    }
+
+    &__before {
+        margin-right: 10px;
+    }
+
+    &__after {
+        margin-left: 10px;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 500;
+        transition: all .3s ease;
+        text-align: center;
+    }
+}
+
+.Button.brown {
+    background-color: var(--brown);
+}

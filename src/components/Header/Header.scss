@@ -1,0 +1,51 @@
+.Header {
+    background-color: #fff;
+    
+    &__in {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+    }
+
+    &__part {
+        margin: 0 10px;
+        flex: 0 0 auto;
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background-color: #cdcdcd;
+        
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+
+        &_item {
+            margin: 0 5px;
+            flex: 0 0 auto;
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__search {
+        flex: 1 0 auto;
+    }
+}
