@@ -1,6 +1,6 @@
 import './Card.scss';
 import IconButton from '../IconButton/IconButton';
-import {BsFillHeartFill, BsShareFill, BsFillBookmarksFill} from 'react-icons/bs';
+import {BsFillHeartFill,BsFillPinAngleFill, BsShareFill, BsFillBookmarksFill} from 'react-icons/bs';
 import { useState } from 'react';
 import {SlOptionsVertical} from 'react-icons/sl';
 import {CgClose} from 'react-icons/cg';
@@ -70,7 +70,7 @@ const Card = ({
                         </div>
                         <div className="Card__main_context_menu_item">
                             <IconButton
-                                icon={<BsFillBookmarksFill/>}
+                                icon={<BsFillPinAngleFill/>}
                                 size={'20px'}
                                 variant={'brown'}
                                 color={'#fff'}

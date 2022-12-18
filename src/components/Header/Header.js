@@ -28,7 +28,7 @@ const Header = () => {
                                 variant={'brown'}
                                 text={'Создать'}
                                 after={<BsPlusLg/>}
-                                tooltip={'Возможность создавать товары скоро появиться'}
+                                tooltip={'Coming soon'}
                                 />
                         </div>
                     </div>
