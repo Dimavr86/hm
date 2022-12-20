@@ -1,0 +1,39 @@
+.ProfileMenu {
+    border-radius: 15px;
+    background-color: #fff;
+
+    &__list {
+        padding: 10px;
+    }
+
+    &__item {
+        padding: 7px 10px;
+        border-radius: 10px;
+        transition: all .3s ease;
+        color: var(--text);
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+
+        &_icon {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &_text {
+
+        }
+
+        &:hover {
+            background-color: var(--bisq);
+        }
+    }
+
+    &__item.active {
+        background-color: var(--bisq);
+    }
+}

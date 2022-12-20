@@ -6,10 +6,12 @@ import Button from '../Button/Button';
 import IconButton from '../IconButton/IconButton';
 import {BsFillChatDotsFill, BsPlusLg} from 'react-icons/bs';
 import Avatar from '../Avatar/Avatar';
-
-
+import {Dropdown} from 'antd';
+import ProfileMenu from '../ProfileMenu/ProfileMenu';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const nav = useNavigate();
     return (
         <header className="Header">
             <Container>
@@ -20,13 +22,15 @@ const Header = () => {
                     <div className="Header__action Header__part">
                         <div className="Header__action_item">
                             <Button
-                                text={'Главная'}
+                                onClick={() => nav('/')}
+                                text={'Home'}
                                 />
                         </div>
                         <div className="Header__action_item">
                             <Button
-                                variant={'brown'}
-                                text={'Создать'}
+                                // variant={'brown'}
+                                variant={'white'}
+                                text={'Create'}
                                 after={<BsPlusLg/>}
                                 tooltip={'Coming soon'}
                                 />
@@ -42,12 +46,21 @@ const Header = () => {
                                 icon={<BsFillChatDotsFill/>}
                                 size={'30px'}
                                 variant={'transparent'}
-                                color={'var(--blue)'}
+                                // color={'var(--blue)'}
+                                color={'#fff'}
                                 />
                         </div>
-                        <div className="Header__action_item">
-                            <Avatar active={true}/>
-                        </div>
+                        <Dropdown
+                                // open={true}
+                                placement={'top'}
+                                dropdownRender={() => <ProfileMenu/>}
+                                trigger={['click']}
+                                >
+                                 <div className="Header__action_item">
+                                    <Avatar active={true}/>
+                                </div>
+                            </Dropdown>
+                       
                     </div>
 
                 </div>

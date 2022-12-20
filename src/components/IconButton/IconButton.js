@@ -15,7 +15,8 @@ const IconButton = ({
     size = '16px',
     variant,
     onClick,
-    badge
+    badge,
+    style
 }) => {
 
     const variantFunc = (variant) => {
@@ -34,7 +35,7 @@ const IconButton = ({
     }
 
     return (
-        <button onClick={onClick} style={{fontSize: size, lineHeight: size, color:color}} className={"IconButton" + variantFunc(variant)}>
+        <button onClick={onClick} style={{fontSize: size, lineHeight: size, color:color, ...style}} className={"IconButton" + variantFunc(variant)}>
             {
                 badge > 0 ? (
                     <div className="IconButton__badge">{badge}</div>

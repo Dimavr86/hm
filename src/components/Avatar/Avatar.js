@@ -3,11 +3,12 @@ import image from '../../assets/avatar.png';
 
 
 const Avatar = ({
-    active
+    active,
+    size = '40px'
 }) => {
 
     return (
-        <div className={"Avatar" + (active ? ' active ' : '')}>
+        <div style={{width: size, height: size}} className={"Avatar" + (active ? ' active ' : '')}>
             <img src={image} alt="" />
         </div>
     )

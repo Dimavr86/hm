@@ -7,7 +7,8 @@ const variants = {
     danger: 'danger',
     success: 'success',
     black: 'black',
-    brown: 'brown'
+    brown: 'brown',
+    white: 'white'
 }
 
 
@@ -29,6 +30,8 @@ const Button = ({
                 return ' default '
             case variants.brown:
                 return ' brown '
+            case variants.white:
+                return ' white '
             default:
                 return ' default '
         }

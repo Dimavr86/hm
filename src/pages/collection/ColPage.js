@@ -1,6 +1,8 @@
-import './HomePage.scss';
+import './ColPage.scss';
 import Container from '../../components/Container/Container';
+import { useParams } from 'react-router-dom';
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
+import Card from '../../components/Card/Card';
 import card1 from '../../assets/card-1.jpeg';
 import card2 from '../../assets/card-2.jpeg';
 import card3 from '../../assets/card-3.jpeg';
@@ -9,7 +11,6 @@ import card5 from '../../assets/card-5.jpeg';
 import card6 from '../../assets/card-6.jpeg';
 import card7 from '../../assets/card-7.jpeg';
 import card8 from '../../assets/card-8.jpeg';
-import Card from '../../components/Card/Card';
 import {motion} from 'framer-motion';
 
 const prodListMock = [
@@ -29,26 +30,39 @@ const prodListMock = [
         name: 'Product 4',
         image: card4
     },
-    {
-        name: 'Product 5',
-        image: card5
-    },
-    {
-        name: 'Product 6',
-        image: card6
-    },
-    {
-        name: 'Product 7',
-        image: card7
-    },
-    {
-        name: 'Product 8',
-        image: card8
-    },
+    // {
+    //     name: 'Product 5',
+    //     image: card5
+    // },
+    // {
+    //     name: 'Product 6',
+    //     image: card6
+    // },
+    // {
+    //     name: 'Product 7',
+    //     image: card7
+    // },
+    // {
+    //     name: 'Product 8',
+    //     image: card8
+    // },
 ]
 
-const HomePage = () => {
+const ColPage = () => {
+    const {collection} = useParams()
 
+    const headFunc = (collection) => {
+        switch(collection) {
+            case 'favourites':
+                return 'Favourites'
+                break;
+            case 'saved':
+                return 'Saved'
+                break;
+            default:
+                return null;
+        }
+    }
 
     return (
         <motion.div 
@@ -56,9 +70,13 @@ const HomePage = () => {
             animate={{opacity: 1}}
             transition={{duration: 0.5}}
             exit={{opacity: 0}}
-            className="HomePage page">
+            className="ColPage page">
             <Container>
-                <div className="HomePage__in">
+                
+                <h2 className="ColPage__head">
+                    {headFunc(collection)}
+                </h2>
+                <div className="ColPage__in">
                     <ResponsiveMasonry
                         columnsCountBreakPoints={{300: 2, 768: 5}}
                         >
@@ -84,4 +102,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default ColPage;

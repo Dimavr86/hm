@@ -1,5 +1,6 @@
 .Header {
     background-color: #fff;
+    background-color: #DEB887;
     
     &__in {
         display: flex;
@@ -25,7 +26,7 @@
         height: 60px;
         border-radius: 100%;
         background-color: #cdcdcd;
-        
+
     }
 
     &__action {
@@ -35,6 +36,7 @@
         &_item {
             margin: 0 5px;
             flex: 0 0 auto;
+            
             &:first-child {
                 margin-left: 0;
             }

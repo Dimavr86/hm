@@ -82,3 +82,15 @@
 .Button.brown {
     background-color: var(--brown);
 }
+.Button.white {
+    
+    background-color: #fff;
+    .Button__text {
+        color: var(--text);    
+    }
+
+    .Button__side {
+        color: var(--text);
+    }
+
+}
