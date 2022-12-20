@@ -7,7 +7,8 @@ const variants = {
     black: 'black',
     transparent: 'transparent',
     brown: 'brown',
-    gray: 'gray'
+    gray: 'gray',
+    white: 'white'
 }
 const IconButton = ({
     icon,
@@ -29,6 +30,8 @@ const IconButton = ({
                 return ' brown '
             case variants.gray:
                 return ' gray '
+            case variants.white:
+                return ' white '
             default:
                 return ' default '
         }

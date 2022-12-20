@@ -1,0 +1,25 @@
+.ProductPage {
+
+    &__in {
+        padding: 40px 0;
+    }
+
+    &__ex {
+        padding: 40px 0;
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .ProductPage {
+
+        &__in {
+            padding: 20px 0;
+
+            .panel {
+
+                border-radius: 0 0 20px 20px;
+            }
+        }
+    }
+}

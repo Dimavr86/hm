@@ -37,4 +37,19 @@ body {
     padding: 20px;
 }
 
+.main {
+    padding-bottom: 64px;
+}
+
+.page-title {
+    margin-bottom: 30px;
+    color: var(--blue);
+    font-size: 30px;
+    line-height: 40px;
+}
+
+:where(.css-dev-only-do-not-override-26rdvq)[class^="ant-col"], :where(.css-dev-only-do-not-override-26rdvq)[class*=" ant-col"] {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
 

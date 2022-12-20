@@ -2,20 +2,51 @@ import './MainSearch.scss';
 import {BiSearch} from 'react-icons/bi';
 import {CgClose} from 'react-icons/cg';
 import IconButton from '../IconButton/IconButton';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Dropdown } from 'antd';
 import MsDropdown from './components/MsDropdown/MsDropdown';
 
-const MainSearch = () => {
+const MainSearch = ({
+   focus,
+   closeSearch
+}) => {
     const [value, setValue] = useState('')
     const [focused, setFocused] = useState(false)
     const [dropOpen, setDropOpen] = useState(false)
+    const inpRef = useRef();
+
     const onSearch = (e) => {
         if(e.nativeEvent.key == 'Enter') {
             setValue('')
         }
     }
+
+    useEffect(() => {
+        if(focus) {
+            setFocused(true)
+        } else {
+            setFocused(false)
+        }
+    }, [focus])
+
+    useEffect(() => {
+        if(focused) {
+            focusInp()
+        } else {
+            if(closeSearch) {
+                closeSearch(false)
+                setValue('')
+            }
+        }
+    }, [focused, closeSearch])
     
+
+
+    // useEffect(() => {
+    //     focusInp()
+    // }, [focused])
+
+  
 
     useEffect(() => {
         if(focused && value ) {
@@ -24,6 +55,10 @@ const MainSearch = () => {
             setDropOpen(false)
         }
     }, [focused, value])
+
+    const focusInp = () => {
+        inpRef.current.focus()
+    }
 
     return (
         <Dropdown
@@ -42,6 +77,7 @@ const MainSearch = () => {
                 
                 <div className="MainSearch__body">
                     <input 
+                        ref={inpRef}
                         onFocus={() => setFocused(true)}
                         onBlur={() => setFocused(false)}
                         onKeyDown={onSearch}

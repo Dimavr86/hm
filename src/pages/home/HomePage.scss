@@ -8,3 +8,12 @@
 
     }
 }
+
+@media (max-width: 1000px) {
+    .HomePage {
+        
+        &__in {
+            padding: 20px 0;
+        }
+    }
+}

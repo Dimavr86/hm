@@ -4,6 +4,10 @@
     
 }
 
+.ms-wrap {
+    display: none;
+}
+
 .MainSearch {
     padding: 10px 15px;
     border-radius: 40px;
@@ -48,4 +52,28 @@
     }
 
     
+}
+
+@media (max-width: 1000px) {
+    .ms-wrap.show {
+        transform: translateY(0);
+    }
+
+    .ms-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        // height: 100%;
+        z-index: 100;
+        transform: translateY(-100%);
+        padding: 10px;
+        transition: all .3s ease;
+        display: block;
+        // background-color: var(#1a1a1a, .3);
+        // backdrop-filter: blur(5px);
+    }
+    .MainSearch {
+        background-color: #fff;
+    }
 }

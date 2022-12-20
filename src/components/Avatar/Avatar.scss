@@ -1,5 +1,5 @@
 .Avatar {
-    
+    user-select: none;
     border-radius: 100%;
     border: 3px solid transparent;
     transition: all .3s ease;
@@ -13,6 +13,7 @@
         object-fit: cover;
         display: flex;
         border-radius: 100%;
+        user-select: none;
 
     }
 }

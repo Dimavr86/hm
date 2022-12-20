@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import MainSearch from '../MainSearch/MainSearch';
 import Button from '../Button/Button';
 import IconButton from '../IconButton/IconButton';
-import {BsFillChatDotsFill, BsPlusLg} from 'react-icons/bs';
+import {BsFillChatDotsFill, BsPlusLg, BsBellFill} from 'react-icons/bs';
 import Avatar from '../Avatar/Avatar';
 import {Dropdown} from 'antd';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
@@ -43,7 +43,7 @@ const Header = () => {
                         <div className="Header__action_item">
                             <IconButton
                                 badge={10}
-                                icon={<BsFillChatDotsFill/>}
+                                icon={<BsBellFill/>}
                                 size={'30px'}
                                 variant={'transparent'}
                                 // color={'var(--blue)'}

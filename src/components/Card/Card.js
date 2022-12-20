@@ -6,19 +6,14 @@ import {SlOptionsVertical} from 'react-icons/sl';
 import {CgClose} from 'react-icons/cg';
 import { useDoubleTap } from 'use-double-tap';
 import { Dropdown } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-const Arr = () => {
-    return (
-        <div className="Arr">
-
-        </div>
-    )
-}
 
 const Card = ({
     name,
     image,
 }) => {
+    const nav = useNavigate()
     const [saved, setSaved] = useState(false)
     const [liked, setLiked] = useState(false)
 
@@ -26,10 +21,11 @@ const Card = ({
         setLiked(true)
       }, 350, {
         onSingleTap: (e) => {
-            console.log('single tap')
+            if(e.target.classList.contains('Card__body_name')) {
+                nav(`/product/${name}`)
+            }
         }
       });
-
 
 
 

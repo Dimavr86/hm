@@ -15,12 +15,18 @@ const ProfilePage = () => {
             <Container>
                 <div className="ProfilePage__in">
                     <Row gutter={[20, 20]}>
-                        <Col span={8}>
+                        <Col 
+                            span={24}
+                            lg={8}
+                            >
                             <div className="ProfilePage__panel panel">
                             <ProfileCard/>
                             </div>
                         </Col>
-                        <Col span={16}>
+                        <Col 
+                            span={24}
+                            lg={16}
+                            >
                             <div className="ProfilePage__panel panel">
                             <ProfileEdit/>
                             </div>

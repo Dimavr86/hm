@@ -21,7 +21,8 @@ const Button = ({
     disabled,
     load,
     color = '#fff',
-    tooltip
+    tooltip,
+    style
 }) => {
 
     const variantFunc = (variant) => {
@@ -44,7 +45,7 @@ const Button = ({
             trigger={['hover']}
             placement={'bottom'}
             >
-            <button style={{color:color}} disabled={disabled} className={"Button" + (load ? ' load ' : '') + variantFunc(variant)} onClick={onClick}>
+            <button style={{color:color, ...style}} disabled={disabled} className={"Button" + (load ? ' load ' : '') + variantFunc(variant)} onClick={onClick}>
                 <div className="Button__load">
                     <CircleLoader color={color}/>
                 </div>
@@ -71,7 +72,7 @@ const Button = ({
     }
 
     return (
-        <button style={{color:color}} disabled={disabled} className={"Button" + (load ? ' load ' : '') + variantFunc(variant)} onClick={onClick}>
+        <button style={{color:color, ...style}} disabled={disabled} className={"Button" + (load ? ' load ' : '') + variantFunc(variant)} onClick={onClick}>
             <div className="Button__load">
                 <CircleLoader color={color}/>
             </div>
