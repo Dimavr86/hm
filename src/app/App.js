@@ -8,14 +8,43 @@ import Navbar from '../components/Navbar/Navbar';
 import MainSearch from '../components/MainSearch/MainSearch';
 import { useState } from 'react';
 import ProductPage from '../pages/product/ProductPage';
+import Nots from '../components/Nots/Nots';
+import Reg from '../components/Reg/Reg';
+import Auth from '../components/Auth/Auth';
+
 const App = () => {
     const [search, setSearch] = useState(false)
-    
+    const [nots, setNots] = useState(false)
+    const [reg, setReg] = useState(false)
+    const [auth, setAuth] = useState(false)
+
+    const openReg = () => setReg(true)
+    const closeReg = () => setReg(false)
+    const openAuth = () => setAuth(true)
+    const closeAuth = () => setAuth(false)
+
+    const openNots = () => {
+        setNots(true)
+    }
+
+    const closeNots = () => {
+        setNots(false)
+    }
 
 
     return (
         <div className="App">
-            <Header/>
+            <Auth
+                open={auth}
+                close={closeAuth}
+                toggle={openReg}
+                />
+            <Reg
+                open={reg}
+                close={closeReg}
+                toggle={openAuth}
+                />
+            <Header openAuth={openAuth} openNots={openNots}/>
             <div className={"ms-wrap" + (search ? ' show ' : '')}>
                 <MainSearch focus={search} closeSearch={setSearch}/>
             </div>
@@ -30,6 +59,13 @@ const App = () => {
             <Navbar
                 search={search}
                 toggleSearch={setSearch}
+                openNots={openNots}
+                openAuth={openAuth}
+                />
+            <Nots
+                open={nots}
+                close={closeNots}
+                
                 />
         </div>
     )

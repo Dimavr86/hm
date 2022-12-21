@@ -5,6 +5,8 @@ import { Row, Col } from 'antd';
 import { useParams } from 'react-router-dom';
 import Avatar from '../../../../components/Avatar/Avatar';
 import Button from '../../../../components/Button/Button';
+import Report from '../../../../components/Report/Report';
+import {useState} from 'react';
 
 const kw = [
     {keyword: 'keyword 1'},
@@ -22,10 +24,17 @@ const ProductBody = ({
     liked, setLiked
 }) => {
     const {productName} = useParams();
+    const [report, setReport] = useState(false);
 
+    const closeReport = () => setReport(false)
+    const openReport = () => setReport(true)
 
     return (
         <div className="ProductBody">
+            <Report
+                open={report}
+                close={closeReport}
+                />
             <div className="ProductBody__action">
                 <div className="ProductBody__action_item">
                     <Button
@@ -63,6 +72,7 @@ const ProductBody = ({
                 </div>
                 <div className="ProductBody__action_item">
                     <IconButton
+                        onClick={openReport}
                         icon={<BsFlagFill/>}
                         variant={'white'}
                         size={'25px'}

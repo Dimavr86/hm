@@ -14,7 +14,7 @@ import {motion} from 'framer-motion';
 
 const prodListMock = [
     {
-        name: 'Product 1',
+        name: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi minima pariatur temporibus doloremque impedit rem at tempore dolore! Eaque, recusandae blanditiis! Nesciunt blanditiis, libero quod unde explicabo tempore corrupti quasi!',
         image: card1
     },
     {

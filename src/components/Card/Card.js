@@ -21,9 +21,7 @@ const Card = ({
         setLiked(true)
       }, 350, {
         onSingleTap: (e) => {
-            if(e.target.classList.contains('Card__body_name')) {
-                nav(`/product/${name}`)
-            }
+            nav(`/product/${name}`)
         }
       });
 
@@ -32,12 +30,7 @@ const Card = ({
     return (
         <div 
             className="Card"
-            {...bind}
             >
-            <div className="Card__main">
-                <div className={"Card__main_like" + (liked ? ' active ' : '')}>
-                    <BsFillHeartFill/>
-                </div>
                 <div className="Card__main_opts">
                     {
                         liked ? (
@@ -69,6 +62,36 @@ const Card = ({
                             />
                     </div>
                 </div>
+                <div className="Card__body_action">
+                        {
+                            saved ? (
+                            <IconButton
+                                style={{padding: '4px'}}
+                                size={'25px'}
+                                onClick={() => setSaved(!saved)}
+                                variant={'transparent'}
+                                color={'var(--brown)'}
+                                icon={<BsFillBookmarkFill/>}
+                            />
+                            ) : (
+                                <IconButton
+                                    style={{padding: '4px'}}
+                                    size={'25px'}
+                                    onClick={() => setSaved(!saved)}
+                                    variant={'transparent'}
+                                    color={'var(--text)'}
+                                    icon={<BsBookmark/>}
+                            />
+                            )
+                        }
+                        
+                    </div>
+            <div className="Card__in" {...bind}>
+            <div className="Card__main">
+                <div className={"Card__main_like" + (liked ? ' active ' : '')}>
+                    <BsFillHeartFill/>
+                </div>
+                
                 
                 <div className="Card__main_info">
                     <h3 className="Card__main_info_head">
@@ -83,33 +106,12 @@ const Card = ({
                     <img src={image} alt="" />
                 </div>
             </div>
-            <div className="Card__body">
-                <div className="Card__body_name">{name}</div>
-                <div className="Card__body_action">
-                    {
-                        saved ? (
-                        <IconButton
-                            style={{padding: '4px'}}
-                            size={'25px'}
-                            onClick={() => setSaved(!saved)}
-                            variant={'transparent'}
-                            color={'var(--brown)'}
-                            icon={<BsFillBookmarkFill/>}
-                        />
-                        ) : (
-                            <IconButton
-                                style={{padding: '4px'}}
-                                size={'25px'}
-                                onClick={() => setSaved(!saved)}
-                                variant={'transparent'}
-                                color={'var(--text)'}
-                                icon={<BsBookmark/>}
-                        />
-                        )
-                    }
+                <div className="Card__body">
+                    <div className="Card__body_name">{name}</div>
                     
                 </div>
             </div>
+            
         </div>
     )
 }

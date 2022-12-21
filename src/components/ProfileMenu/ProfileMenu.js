@@ -2,6 +2,7 @@ import './ProfileMenu.scss';
 import {BsHeartFill, BsBookmarkFill} from 'react-icons/bs';
 import {FaUserAlt} from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import {FiLogOut} from 'react-icons/fi';
 
 const ProfileMenu = () => {
 
@@ -30,6 +31,13 @@ const ProfileMenu = () => {
                         <BsBookmarkFill/>
                     </span>
                     <span className="ProfileMenu__item_text">Saved</span>
+                    
+                </li>
+                <li className="ProfileMenu__item ProfileMenu__item-logout">
+                    <span className="ProfileMenu__item_icon">
+                        <FiLogOut/>
+                    </span>
+                    <span className="ProfileMenu__item_text">Log out</span>
                     
                 </li>
             </ul>

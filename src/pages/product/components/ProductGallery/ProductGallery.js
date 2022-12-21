@@ -6,6 +6,8 @@ import img3 from '../../../../assets/card-3.jpeg';
 import { useDoubleTap } from 'use-double-tap';
 import { BsHeartFill } from 'react-icons/bs';
 import { useState } from 'react';
+import { Pagination } from 'swiper';
+// import 'swiper/css/pagination';
 
 
 const ProductGallery = ({
@@ -29,6 +31,14 @@ const ProductGallery = ({
             </div>
             <Swiper 
                 {...bind}
+                modules={[Pagination]}
+                pagination={{
+                    el:'.ProductGallery__pag',
+                    clickable: true,
+                    type: 'bullets',
+                    bulletClass: 'ProductGallery__pag_item',
+                    bulletActiveClass: 'active'
+                }}
                 className='ProductGallery__slider'>
                 <SwiperSlide className='ProductGallery__slide'>
                     <img src={img1} alt="" />
@@ -39,6 +49,7 @@ const ProductGallery = ({
                 <SwiperSlide className='ProductGallery__slide'>
                     <img src={img3} alt="" />
                 </SwiperSlide>
+                <div className="ProductGallery__pag"></div>
             </Swiper>
         </div>
     )

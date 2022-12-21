@@ -9,11 +9,20 @@ import Avatar from '../Avatar/Avatar';
 import {Dropdown} from 'antd';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
 import { useNavigate } from 'react-router-dom';
+import NotsMenu from '../NotsMenu/NotsMenu';
+import {useState} from 'react';
+import {GoSignIn} from 'react-icons/go';
+import Reg from '../Reg/Reg';
+import Auth from '../Auth/Auth';
 
-const Header = () => {
+const Header = ({openNots, openAuth}) => {
     const nav = useNavigate();
+    const [token,setToken] = useState(false)
+    
+
     return (
         <header className="Header">
+            
             <Container>
                 <div className="Header__in">
                     <div className="Header__logo Header__part">
@@ -40,26 +49,47 @@ const Header = () => {
                         <MainSearch/>
                     </div>
                     <div className="Header__action Header__part">
-                        <div className="Header__action_item">
-                            <IconButton
-                                badge={10}
-                                icon={<BsBellFill/>}
-                                size={'30px'}
-                                variant={'transparent'}
-                                // color={'var(--blue)'}
-                                color={'#fff'}
-                                />
-                        </div>
                         <Dropdown
-                                // open={true}
-                                placement={'top'}
-                                dropdownRender={() => <ProfileMenu/>}
-                                trigger={['click']}
-                                >
-                                 <div className="Header__action_item">
-                                    <Avatar active={true}/>
+                            overlay={<NotsMenu openNots={openNots}/>}
+                            placement={'bottom'}
+                            // trigger={['click']}
+                            >
+                                <div className="Header__action_item">
+                                    <IconButton
+                                        badge={10}
+                                        icon={<BsBellFill/>}
+                                        size={'30px'}
+                                        variant={'transparent'}
+                                        // color={'var(--blue)'}
+                                        color={'#fff'}
+                                        />
                                 </div>
-                            </Dropdown>
+                        </Dropdown>
+                        {
+                            token ? (
+                                <Dropdown
+                                    // open={true}
+                                    placement={'top'}
+                                    dropdownRender={() => <ProfileMenu/>}
+                                    trigger={['click']}
+                                    >
+                                    <div className="Header__action_item">
+                                        <Avatar active={true}/>
+                                    </div>
+                                </Dropdown>
+                            ) : (
+                                <div className="Header__action_item">
+                                    <IconButton
+                                        onClick={openAuth}
+                                        icon={<GoSignIn/>}
+                                        variant={'transparent'}
+                                        color={"#fff"}
+                                        size={'30px'}
+                                        />
+                                </div>
+                            )
+                        }
+                        
                        
                     </div>
 

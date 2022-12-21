@@ -1,0 +1,35 @@
+.NotsMenuItem {
+    display: flex;
+    align-items: flex-start;
+    padding: 5px;
+    padding-right: 10px;
+    border-radius: 10px;
+    transition: all .3s ease;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--bisq);
+    }
+
+    &__icon {
+        flex: 0 0 auto;
+        margin-right: 10px;
+    }
+
+    &__body {
+        width: 100%;
+
+        &_text {
+            font-weight: 500;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &_date {
+            opacity: .5;
+            font-weight: 500;
+        }   
+    }
+}

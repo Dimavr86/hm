@@ -6,6 +6,10 @@
         padding: 10px;
     }
 
+    &__item.ProfileMenu__item-logout {
+        color: red;
+    }
+
     &__item {
         padding: 7px 10px;
         border-radius: 10px;

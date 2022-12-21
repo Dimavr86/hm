@@ -5,6 +5,37 @@
     position: relative;
     overflow: hidden;
 
+    &__pag {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+
+        // border: 1px solid red;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &_item {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            display: block;
+            margin: 0 5px;
+            background-color: #fff;
+            filter: drop-shadow(0 0 10px 10px rgba(#1a1a1a, .5));
+            transition: all .3s ease;
+            cursor: pointer;
+            opacity: .5;
+        }
+
+        &_item.active {
+            opacity: 1;
+            transform: scale(1.5);
+        }
+    }
+
     &__like.active {
         animation: like-anim 1.5s ease;
     }

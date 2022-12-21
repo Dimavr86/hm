@@ -8,14 +8,18 @@ import { useState, useEffect } from 'react';
 import {BsHeartFill, BsBookmarkFill} from 'react-icons/bs';
 import {FaUserAlt} from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-
+import {GoSignIn} from 'react-icons/go';
 
 const Navbar = ({
     toggleSearch,
-    search
+    search,
+    openNots,
+    openAuth
 }) => {
-    const [profMenu, setProfMenu] = useState(false)
+    const [profMenu, setProfMenu] = useState(false);
+    const [token, setToken] = useState(false)
     const nav = useNavigate();
+
 
     
 
@@ -50,10 +54,14 @@ const Navbar = ({
                         icon={<BsBellFill/>}
                         badge={10}
                         size={'24px'}
+                        onClick={openNots}
                         variant={'transparent'}
                         />
                 </li>
-                <li className={"Navbar__item Navbar__item-avatar" + (profMenu ? ' active ' : '')}>
+                
+                {
+                    token ? (
+                    <li className={"Navbar__item Navbar__item-avatar" + (profMenu ? ' active ' : '')}>
                     {/* <div className="Navbar__item-avatar_menu">
                         <div className="Navbar__item-avatar_menu_item">
                             <IconButton
@@ -77,64 +85,77 @@ const Navbar = ({
                                 />
                         </div>
                     </div> */}
-                    <Dropdown
-                        placement={'top'}
-                        dropdownRender={
-                            () => {
-                                return (
-                                    <div className="Navbar__item-avatar_menu ant-dropdown">
-                                <div className="Navbar__item-avatar_menu_item">
-                                    <IconButton
-                                        icon={<BsHeartFill/>}
-                                        variant={'white'}
-                                        onClick={() => {
-                                            nav('/collection/favourites')
-                                            setProfMenu(false)
-                                        }}
+                        <Dropdown
+                                placement={'top'}
+                                dropdownRender={
+                                    () => {
+                                        return (
+                                            <div className="Navbar__item-avatar_menu ant-dropdown">
+                                        <div className="Navbar__item-avatar_menu_item">
+                                            <IconButton
+                                                icon={<BsHeartFill/>}
+                                                variant={'white'}
+                                                onClick={() => {
+                                                    nav('/collection/favourites')
+                                                    setProfMenu(false)
+                                                }}
+                                                />
+                                        </div>
+                                        <div className="Navbar__item-avatar_menu_item">
+                                            <IconButton
+                                                icon={<BsBookmarkFill/>}
+                                                variant={'white'}
+                                                onClick={() => {
+                                                    nav('/collection/saved')
+                                                    setProfMenu(false)
+                                                }}
+                                                />
+                                        </div>
+                                        <div className="Navbar__item-avatar_menu_item">
+                                            <IconButton
+                                                onClick={() => {
+                                                    nav('/profile')
+                                                    setProfMenu(false)
+                                                }}
+                                                icon={<FaUserAlt/>}
+                                                variant={'white'}
+                                                />
+                                        </div>
+                                    </div>
+                                        )
+                                    }
+                                }
+                                open={profMenu}
+                                onOpenChange={e => {
+                                    if(e) {
+                                        setProfMenu(true)
+                                    } else {
+                                        setProfMenu(false)
+                                    }
+                                }}
+                                trigger={['click']}
+                                >
+                                <div onClick={() => setProfMenu(!profMenu)} className="Navbar__item-avatar_el">
+                                    <Avatar
+                                        active={profMenu}
                                         />
                                 </div>
-                                <div className="Navbar__item-avatar_menu_item">
-                                    <IconButton
-                                        icon={<BsBookmarkFill/>}
-                                        variant={'white'}
-                                        onClick={() => {
-                                            nav('/collection/saved')
-                                            setProfMenu(false)
-                                        }}
-                                        />
-                                </div>
-                                <div className="Navbar__item-avatar_menu_item">
-                                    <IconButton
-                                        onClick={() => {
-                                            nav('/profile')
-                                            setProfMenu(false)
-                                        }}
-                                        icon={<FaUserAlt/>}
-                                        variant={'white'}
-                                        />
-                                </div>
-                            </div>
-                                )
-                            }
-                        }
-                        open={profMenu}
-                        onOpenChange={e => {
-                            if(e) {
-                                setProfMenu(true)
-                            } else {
-                                setProfMenu(false)
-                            }
-                        }}
-                        trigger={['click']}
-                        >
-                        <div onClick={() => setProfMenu(!profMenu)} className="Navbar__item-avatar_el">
-                            <Avatar
-                                active={profMenu}
-                                />
-                        </div>
-                    </Dropdown>
+                            </Dropdown>
+                    
                     
                 </li>
+                    ) : (
+                        <li className="Navbar__item">
+                            <IconButton
+                                icon={<GoSignIn/>}
+                                onClick={openAuth}
+                                size={'24px'}
+                                variant={'transparent'}
+                                />
+                        </li>
+                    )
+                }
+                
             </ul>
         </div>
     )
