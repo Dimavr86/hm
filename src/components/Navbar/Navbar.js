@@ -9,6 +9,9 @@ import {BsHeartFill, BsBookmarkFill} from 'react-icons/bs';
 import {FaUserAlt} from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import {GoSignIn} from 'react-icons/go';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateToken } from '../../store/actions';
+import {FiLogOut} from 'react-icons/fi';
 
 const Navbar = ({
     toggleSearch,
@@ -17,8 +20,9 @@ const Navbar = ({
     openAuth
 }) => {
     const [profMenu, setProfMenu] = useState(false);
-    const [token, setToken] = useState(false)
+    const {token} = useSelector(state => state) 
     const nav = useNavigate();
+    const dispatch = useDispatch();
 
 
     
@@ -119,6 +123,17 @@ const Navbar = ({
                                                 }}
                                                 icon={<FaUserAlt/>}
                                                 variant={'white'}
+                                                />
+                                        </div>
+                                        <div className="Navbar__item-avatar_menu_item Navbar__item-avatar_menu_item-exit">
+                                            <IconButton
+                                                onClick={() => {
+                                                    dispatch(updateToken(false))
+                                                    setProfMenu(false)
+                                                }}
+                                                icon={<FiLogOut/>}
+                                                variant={'white'}
+                                                color={'red'}
                                                 />
                                         </div>
                                     </div>

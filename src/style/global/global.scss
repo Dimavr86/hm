@@ -3,6 +3,7 @@
     margin: 0;
     outline: none;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 input,button,select {
@@ -39,6 +40,7 @@ body {
 
 .main {
     padding-bottom: 64px;
+    overflow-x: hidden;
 }
 
 .page-title {

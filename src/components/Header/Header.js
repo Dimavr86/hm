@@ -14,10 +14,12 @@ import {useState} from 'react';
 import {GoSignIn} from 'react-icons/go';
 import Reg from '../Reg/Reg';
 import Auth from '../Auth/Auth';
+import { useSelector } from 'react-redux';
 
 const Header = ({openNots, openAuth}) => {
     const nav = useNavigate();
-    const [token,setToken] = useState(false)
+    const {token} = useSelector(state => state)
+    
     
 
     return (

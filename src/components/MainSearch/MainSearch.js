@@ -5,11 +5,13 @@ import IconButton from '../IconButton/IconButton';
 import { useState, useEffect, useRef } from 'react';
 import { Dropdown } from 'antd';
 import MsDropdown from './components/MsDropdown/MsDropdown';
+import { useNavigate } from 'react-router-dom';
 
 const MainSearch = ({
    focus,
    closeSearch
 }) => {
+    const nav = useNavigate()
     const [value, setValue] = useState('')
     const [focused, setFocused] = useState(false)
     const [dropOpen, setDropOpen] = useState(false)
@@ -17,8 +19,14 @@ const MainSearch = ({
 
     const onSearch = (e) => {
         if(e.nativeEvent.key == 'Enter') {
+            nav(`/search-result?value=${value}`)
             setValue('')
         }
+    }
+
+    const onSubmit = () => {
+        nav(`/search-result?value=${value}`)
+            setValue('')
     }
 
     useEffect(() => {
@@ -67,13 +75,16 @@ const MainSearch = ({
             open={dropOpen}
             >
             <div className={"MainSearch" + (focused ? ' focused ' : '')}>
-                {
+                {/* {
                     !focused && !value ? (
                         <div className="MainSearch__icon">
                             <BiSearch/>
                         </div>
                     ) : null
-                }
+                } */}
+                <div className="MainSearch__icon" onClick={onSubmit}>
+                    <BiSearch/>
+                </div>
                 
                 <div className="MainSearch__body">
                     <input 

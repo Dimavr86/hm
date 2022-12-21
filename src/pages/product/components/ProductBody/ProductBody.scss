@@ -76,11 +76,8 @@
 
         &_head {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: flex-start;
-
-          
-            
         }
 
         &_wm {
@@ -142,7 +139,7 @@
             }
 
             &_wm {
-                height: 30px;
+                // height: 30px;
             }
 
             &_text {

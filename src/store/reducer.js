@@ -1,12 +1,18 @@
 const initState = {
-    
+    token: true
 }
 
 
-const reducer = (state = initState, type) => {
+const reducer = (state = initState, action) => {
 
-    switch(type) {
-        
+    switch(action.type) {
+        case 'TOKEN':
+            return {
+                ...state,
+                token: action.token
+            }
+        default:
+            return state
     }
 }
 

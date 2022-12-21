@@ -1,0 +1,1 @@
+export const updateToken = (token) => ({type: 'TOKEN', token});

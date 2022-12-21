@@ -7,17 +7,20 @@ import { useState } from "react";
 import google from '../../assets/auth-google.png';
 import facebook from '../../assets/auth-fb.png';
 import twitter from '../../assets/auth-twitter.png';
+import { updateToken } from "../../store/actions";
+import { useDispatch } from "react-redux";
 
 
 const Auth = ({open, close, toggle}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const dispatch = useDispatch();
 
     const closeHandle = () => close()
     const toggleAuth = () => {
         toggle()
         closeHandle()
-        
+
     }
 
     return (
@@ -48,6 +51,10 @@ const Auth = ({open, close, toggle}) => {
                     <Col span={24} style={{justifyContent: 'center', display: 'flex'}}>
                         <Button
                             text={'Log in'}
+                            onClick={() => {
+                                dispatch(updateToken(true))
+                                closeHandle()
+                            }}
                             />
                     </Col>
                     <Col span={24}>

@@ -1,0 +1,16 @@
+.ResultPage {
+    padding: 40px 0;
+    &__head {
+        margin-bottom: 30px;
+        color: var(--blue);
+        font-size: 30px;
+        line-height: 40px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .ResultPage {
+
+        padding: 20px 0;
+    }
+}
