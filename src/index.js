@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import 'swiper/css';
 import './style/style.scss';
-// import 'antd/dist/'
+
 import App from './app/App';
 import store from './store/store';
 

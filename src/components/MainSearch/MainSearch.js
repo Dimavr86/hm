@@ -21,12 +21,18 @@ const MainSearch = ({
         if(e.nativeEvent.key == 'Enter') {
             nav(`/search-result?value=${value}`)
             setValue('')
+            if(closeSearch) {
+                closeSearch()
+            }
         }
     }
 
     const onSubmit = () => {
         nav(`/search-result?value=${value}`)
             setValue('')
+            if(closeSearch) {
+                closeSearch()
+            }
     }
 
     useEffect(() => {

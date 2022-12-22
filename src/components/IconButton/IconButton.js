@@ -1,4 +1,5 @@
 import './IconButton.scss';
+import { Tooltip } from 'antd';
 
 const variants = {
     default: 'default',
@@ -17,7 +18,8 @@ const IconButton = ({
     variant,
     onClick,
     badge,
-    style
+    style,
+    tooltip
 }) => {
 
     const variantFunc = (variant) => {
@@ -35,6 +37,25 @@ const IconButton = ({
             default:
                 return ' default '
         }
+    }
+
+    if(tooltip) {
+        return (
+            <Tooltip
+                placement={'top'}
+                title={tooltip}
+                trigger={['click']}
+                >
+                <button onClick={onClick} style={{fontSize: size, lineHeight: size, color:color, ...style}} className={"IconButton" + variantFunc(variant)}>
+                    {
+                        badge > 0 ? (
+                            <div className="IconButton__badge">{badge}</div>
+                        ) : null
+                    }
+                    {icon}
+                </button>
+            </Tooltip>
+        )
     }
 
     return (

@@ -16,6 +16,8 @@ import Reg from '../Reg/Reg';
 import Auth from '../Auth/Auth';
 import { useSelector } from 'react-redux';
 
+
+
 const Header = ({openNots, openAuth}) => {
     const nav = useNavigate();
     const {token} = useSelector(state => state)

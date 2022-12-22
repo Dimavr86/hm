@@ -48,6 +48,7 @@ const Navbar = ({
                 </li>
                 <li className="Navbar__item">
                     <IconButton
+                        tooltip={'Coming soon'}
                         icon={<BsPlusLg/>}
                         size={'24px'}
                         variant={'transparent'}

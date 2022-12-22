@@ -41,6 +41,9 @@ const Report = ({open, close}) => {
 
     return (
         <Modal
+            transitionName=''
+            maskTransitionName=''
+            width={500}
             onCancel={closeHandle}
             open={open}
             className='modal Report'
