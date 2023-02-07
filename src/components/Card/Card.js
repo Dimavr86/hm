@@ -7,7 +7,7 @@ import {CgClose} from 'react-icons/cg';
 import { useDoubleTap } from 'use-double-tap';
 import { Dropdown } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import {m, LazyMotion} from 'framer-motion';
+import {motion, LazyMotion} from 'framer-motion';
 
 
 const Card = ({
@@ -33,6 +33,15 @@ const Card = ({
         <div
         className="Card"
         >
+            <motion.div 
+            
+                initial={{height: '100%'}}
+                animate={{height: 0}}
+                transition={{
+                    duration: 1.5,
+                    ease: 'easeInOut'
+                }}
+                className="Card__layer"></motion.div>
             <div className="Card__main_opts">
                 {
                     liked ? (

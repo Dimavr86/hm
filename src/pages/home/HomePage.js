@@ -29,9 +29,7 @@ const onScroll = () => {
 
 const HomePage = () => {
 
-    useEffect(() => {
-        window.addEventListener('scroll', onScroll)
-    }, [])
+    
 
   
 
@@ -66,6 +64,7 @@ const HomePage = () => {
                             }
                         </Masonry>
                     </ResponsiveMasonry>
+                    
                 </div>
             </Container>
         </motion.div>

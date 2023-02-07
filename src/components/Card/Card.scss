@@ -1,9 +1,4 @@
-.Card.show {
 
-    &:after {
-        height: 0;
-    }
-}
 
 .Card {
     background-color: #fff;
@@ -11,7 +6,7 @@
     position: relative;
     overflow: hidden;
 
-    &:after {
+    &__layer {
         // display: none;
         position: absolute;
         bottom: 0;
@@ -22,9 +17,8 @@
         // border-radius: 20px;
         height: 100%;
         background-color: var(--bisq);
-        transition: all 1.5s ease;
+        // transition: all 1.5s ease;
         z-index: 100;
-        content: '';
     }
 
     &__main {
