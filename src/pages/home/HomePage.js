@@ -1,53 +1,39 @@
 import './HomePage.scss';
 import Container from '../../components/Container/Container';
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
-import card1 from '../../assets/card-1.jpeg';
-import card2 from '../../assets/card-2.jpeg';
-import card3 from '../../assets/card-3.jpeg';
-import card4 from '../../assets/card-4.jpeg';
-import card5 from '../../assets/card-5.jpeg';
-import card6 from '../../assets/card-6.jpeg';
-import card7 from '../../assets/card-7.jpeg';
-import card8 from '../../assets/card-8.jpeg';
+import prodMock from '../../ex/prodMock';
 import Card from '../../components/Card/Card';
 import {motion} from 'framer-motion';
+import { useEffect } from 'react';
 
-const prodListMock = [
-    {
-        name: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi minima pariatur temporibus doloremque impedit rem at tempore dolore! Eaque, recusandae blanditiis! Nesciunt blanditiis, libero quod unde explicabo tempore corrupti quasi!',
-        image: card1
-    },
-    {
-        name: 'Product 2',
-        image: card2
-    },
-    {
-        name: 'Product 3',
-        image: card3
-    },
-    {
-        name: 'Product 4',
-        image: card4
-    },
-    {
-        name: 'Product 5',
-        image: card5
-    },
-    {
-        name: 'Product 6',
-        image: card6
-    },
-    {
-        name: 'Product 7',
-        image: card7
-    },
-    {
-        name: 'Product 8',
-        image: card8
-    },
-]
+
+function elementVisible(el) {
+    let top = el.offsetTop;
+    let height = el.offsetHeight;
+    let bottom = top + height;
+  
+    let IsOverBottom = top > (window.pageYOffset + window.innerHeight);
+    let IsBeforeTop = bottom < window.pageYOffset;
+  
+    if (!IsOverBottom && !IsBeforeTop) {
+      el.classList.add("show");
+    }
+  }
+
+const onScroll = () => {
+    for (var item of document.querySelectorAll(".Card")) {
+        elementVisible(item);
+      }
+}
+
 
 const HomePage = () => {
+
+    useEffect(() => {
+        window.addEventListener('scroll', onScroll)
+    }, [])
+
+  
 
 
     return (
@@ -59,15 +45,17 @@ const HomePage = () => {
             className="HomePage page">
             <Container>
                 <div className="HomePage__in">
+                    
                     <ResponsiveMasonry
                         columnsCountBreakPoints={{300: 2, 768: 5}}
                         >
+                        
                         <Masonry
                             gutter={'20px'}
                             >
                             {
-                                prodListMock?.length > 0 ? (
-                                    prodListMock.map((item, index) => (
+                                prodMock?.length > 0 ? (
+                                    prodMock.map((item, index) => (
                                         <Card
                                             key={index}
                                             name={item.name}
