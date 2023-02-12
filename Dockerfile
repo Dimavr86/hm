@@ -1,5 +1,7 @@
 # build env
 FROM node:19-alpine as build
+EXPOSE 3000
+
 WORKDIR /app
 ENV NODE_OPTIONS=--max_old_space_size=1024
 ENV GENERATE_SOURCEMAP=false
