@@ -10,6 +10,7 @@ import card7 from '../../assets/card-7.jpeg';
 import card8 from '../../assets/card-8.jpeg';
 import Card from '../../components/Card/Card';
 import {motion} from 'framer-motion';
+
 const prodListMock = [
     {
         name: 'Product 1',

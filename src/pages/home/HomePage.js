@@ -47,7 +47,6 @@ const HomePage = () => {
                     <ResponsiveMasonry
                         columnsCountBreakPoints={{300: 2, 768: 5}}
                         >
-                        
                         <Masonry
                             gutter={'20px'}
                             >
