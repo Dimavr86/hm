@@ -9,6 +9,7 @@ import card6 from '../../assets/card-6.jpeg';
 import card7 from '../../assets/card-7.jpeg';
 import card8 from '../../assets/card-8.jpeg';
 import Card from '../../components/Card/Card';
+import {motion} from 'framer-motion';
 
 const prodListMock = [
     {
@@ -45,6 +46,26 @@ const prodListMock = [
     },
 ]
 
+const containerAnim = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.1,
+        staggerChildren: 0.1
+      }
+    }
+}
+
+const itemAnim = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+}
+
 const Ribbon = ({
     head,
     list
@@ -61,6 +82,7 @@ const Ribbon = ({
                     <Masonry
                         gutter={'20px'}
                         >
+                        
                         {
                             prodListMock?.length > 0 ? (
                                 prodListMock.map((item, index) => (
